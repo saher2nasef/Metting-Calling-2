@@ -72,6 +72,9 @@ let HandleUserJoin = async (user, MediaType) => {
     usersStreams.insertAdjacentHTML("beforeend", VideoPlayer);
     user.videoTrack.play(`stream-${user.uid}`);
   }
+  if (MediaType === "audio") {
+    user.audioTrack.play();
+  }
 };
 
 // #########################################
