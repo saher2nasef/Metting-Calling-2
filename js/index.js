@@ -23,7 +23,7 @@ let RemoteTracks = {};
 const JoinBtn = document.getElementById("JoinBtn");
 const usersStreams = document.getElementById("users-streams");
 JoinBtn.addEventListener("click", async () => {
-  JoinBtn.remove();
+  JoinBtn.style.display = "none";
   await joinStreams();
 });
 
@@ -63,6 +63,7 @@ let HandleUserJoin = async (user, MediaType) => {
   await client.subscribe(user, MediaType);
   console.clear();
   if (MediaType === "video") {
+    console.log(user);
     let VideoPlayer = `
     <div class="video-containers" id="video-wrapper-${user.uid}">
       <p class="user-uid">${user.uid}</p>
@@ -87,24 +88,34 @@ CameraBtn.addEventListener("click", () => {
   if (ShowCamera) {
     ShowCamera = false;
     CameraBtn.classList.add("Camera");
-    console.log("Camera No");
+    LocalTracks.VideoTracks.setMuted(true);
   } else {
     ShowCamera = true;
     CameraBtn.classList.remove("Camera");
-    console.log("Camera Yes");
+    LocalTracks.VideoTracks.setMuted(false);
   }
 });
 MicBtn.addEventListener("click", () => {
   if (IsMute) {
     IsMute = false;
     MicBtn.classList.remove("Mute");
-    console.log("Mute Yes");
+    LocalTracks.AudioTracks.setMuted(false);
   } else {
     IsMute = true;
     MicBtn.classList.add("Mute");
-    console.log("Mute No");
+    LocalTracks.AudioTracks.setMuted(true);
   }
 });
-LeaveBtn.addEventListener("click", () => {
-  console.log("LeaveBtn");
+LeaveBtn.addEventListener("click", async () => {
+  for (TrackName in LocalTracks) {
+    let track = LocalTracks[TrackName];
+    if (track) {
+      track.stop();
+      track.close();
+      document.getElementById(`video-wrapper-${config.uid}`).remove();
+    }
+  }
+  await client.leave();
+  usersStreams.innerHTML = "";
+  JoinBtn.style.display = "block";
 });
