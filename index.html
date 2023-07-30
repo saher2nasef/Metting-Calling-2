@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="css/bootstrap-icons/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="css/index.css" />
+  </head>
+  <body>
+    <main class="bg-dark">
+      <button class="btn btn-success fs-4" id="JoinBtn">
+        <span> Join To Meeting </span> <i class="bi bi-patch-plus-fill"></i>
+      </button>
+      <div id="IfJoined">
+        <div id="users-streams"></div>
+        <div class="controller-bar">
+          <button class="btn btn-primary fs-4" id="CameraBtn">
+            <i class="bi bi-camera-video"></i>
+            <i class="bi bi-camera-video-off"></i>
+          </button>
+          <button class="btn btn-primary fs-4" id="MicBtn">
+            <i class="bi bi-mic-fill"></i>
+            <i class="bi bi-mic-mute-fill"></i>
+          </button>
+          <button class="btn btn-primary fs-4" id="LeaveBtn">
+            <i class="bi bi-box-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <script src="js/agora.js"></script>
+    <script src="js/index.js"></script>
+  </body>
+</html>

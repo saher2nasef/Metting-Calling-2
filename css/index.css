@@ -1,0 +1,83 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+main {
+  min-height: 100vh;
+  height: auto;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+/* Start With "controller-bar" */
+#users-streams {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.video-containers {
+  background-color: rgb(43, 43, 43);
+  margin: 10px;
+  position: relative;
+}
+.video-containers p {
+  color: #fff;
+  text-align: center;
+  font-weight: 700;
+  padding: 10px;
+  background-color: rgba(112, 112, 112, 0.418);
+  position: absolute;
+  bottom: -10px;
+  left: 3px;
+  z-index: 22;
+}
+.video-player {
+  height: 400px;
+  width: 400px;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.video-player > * {
+  height: 400px !important;
+  width: 400px !important;
+  background-color: transparent !important;
+  border-radius: 5px;
+}
+.controller-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 10px;
+  padding: 10px;
+}
+.controller-bar button {
+  margin: 0 10px;
+}
+.controller-bar button#CameraBtn .bi-camera-video-off {
+  display: none;
+}
+.controller-bar button#MicBtn .bi-mic-mute-fill {
+  display: none;
+}
+.controller-bar button#CameraBtn.Camera .bi-camera-video-off {
+  display: block;
+}
+.controller-bar button#CameraBtn.Camera .bi-camera-video {
+  display: none;
+}
+.controller-bar button#MicBtn.Mute .bi-mic-mute-fill {
+  display: block;
+}
+
+.controller-bar button#MicBtn.Mute .bi-mic-fill {
+  display: none;
+}
