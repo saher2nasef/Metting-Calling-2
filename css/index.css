@@ -64,6 +64,10 @@ main {
   #users-streams * {
     width: 100% !important;
   }
+  .video-containers p {
+    left: 0;
+    bottom: -16px;
+  }
 }
 .controller-bar {
   display: flex;
