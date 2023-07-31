@@ -11,15 +11,22 @@
     />
     <link rel="stylesheet" href="css/index.css" />
   </head>
-  <body>
-    <div class="alert alert-warning">
-      يجب عليك ان توافق علي الكاميرة واليكروفون والا لا تسطيع ان تدخل الي
-      الاجتماع
+  <body class="bg-dark" dir="rtl">
+    <div id="Messages">
+      <div class="alert alert-warning mb-1">
+        يجب عليك ان توافق علي الكاميرة واليكروفون والا لا تسطيع ان تدخل الي
+        الاجتماع
+      </div>
+      <div class="alert alert-warning m-0">
+        الرب يسوع حلو جدا هو السبب في كل دا
+      </div>
     </div>
     <main class="bg-dark">
-      <button class="btn btn-success fs-4" id="JoinBtn">
-        <span> Join To Meeting </span> <i class="bi bi-patch-plus-fill"></i>
-      </button>
+      <div class="Join d-flex flex-column">
+        <button class="btn btn-success fs-4" id="JoinBtn">
+          <span> Join To Meeting </span> <i class="bi bi-patch-plus-fill"></i>
+        </button>
+      </div>
       <div
         class="spinner-border text-light m-4"
         style="width: 100px; height: 100px; border-width: 10px; display: none"

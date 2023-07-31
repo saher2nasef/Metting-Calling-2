@@ -3,7 +3,14 @@ try {
     mode: "rtc",
     codec: "vp8",
   });
-
+  const CameraBtn = document.getElementById("CameraBtn");
+  const IfJoined = document.getElementById("IfJoined");
+  const Loading = document.getElementById("Loading");
+  let ShowCamera = true;
+  const MicBtn = document.getElementById("MicBtn");
+  let IsMute = false;
+  const LeaveBtn = document.getElementById("LeaveBtn");
+  const Messages = document.getElementById("Messages");
   let config = {
     AppId: "aaecce764c8d43339b4ce51dda79f134",
     Token:
@@ -26,6 +33,7 @@ try {
   JoinBtn.addEventListener("click", async () => {
     JoinBtn.style.display = "none";
     Loading.style.display = "block";
+    Messages.style.display = "none";
     await joinStreams();
   });
 
@@ -50,7 +58,7 @@ try {
 
     let VideoPlayer = `
   <div class="video-containers" id="video-wrapper-${config.uid}">
-    <p class="user-uid">${config.uid}</p>
+    <p class="user-uid">You</p>
     <div class="video-player player" id="stream-${config.uid}"></div>
   </div>
   `;
@@ -60,17 +68,16 @@ try {
     IfJoined.style.display = "block";
     Loading.style.display = "none";
     await client.publish([LocalTracks.AudioTracks, LocalTracks.VideoTracks]);
-    console.clear();
   };
   let HandleUserLeft = async (user) => {
     document.getElementById(`video-wrapper-${user.uid}`).remove();
-    console.clear();
   };
 
   let HandleUserJoin = async (user, MediaType) => {
+    console.log(user);
     RemoteTracks[user.uid] = user;
     await client.subscribe(user, MediaType);
-    console.clear();
+
     let arraysOfuid = [];
     if (MediaType === "video") {
       document.querySelectorAll(".video-containers").forEach((element) => {
@@ -100,17 +107,10 @@ try {
     if (MediaType === "audio") {
       user.audioTrack.play();
     }
-    console.clear();
   };
 
   // #########################################
-  const CameraBtn = document.getElementById("CameraBtn");
-  const IfJoined = document.getElementById("IfJoined");
-  const Loading = document.getElementById("Loading");
-  let ShowCamera = true;
-  const MicBtn = document.getElementById("MicBtn");
-  let IsMute = false;
-  const LeaveBtn = document.getElementById("LeaveBtn");
+
   CameraBtn.addEventListener("click", () => {
     if (ShowCamera) {
       ShowCamera = false;
@@ -121,7 +121,6 @@ try {
       CameraBtn.classList.remove("Camera");
       LocalTracks.VideoTracks.setMuted(false);
     }
-    console.clear();
   });
   MicBtn.addEventListener("click", () => {
     if (IsMute) {
@@ -133,14 +132,12 @@ try {
       MicBtn.classList.add("Mute");
       LocalTracks.AudioTracks.setMuted(true);
     }
-    console.clear();
   });
   LeaveBtn.addEventListener("click", async () => {
     usersStreams.innerHTML = "";
     IfJoined.style.display = "none";
     await client.leave();
     location.href = location.origin;
-    console.clear();
   });
 } catch (error) {
   location.reload();
