@@ -14,9 +14,9 @@ try {
   let config = {
     AppId: "aaecce764c8d43339b4ce51dda79f134",
     Token:
-      "007eJxTYOh7ZXyYPXxG4r/J+2Utel4q7VC+v4vj0CaPG7naz9tLbx5QYEhMTE1OTjU3M0m2SDExNja2TDJJTjU1TElJNLdMMzQ2mdh2LKUhkJFhxk5HVkYGCATxWRh8EzPzGBgA7p4hwg==",
+      "007eJxTYIg7H/Vzx3L/CeUb0ltuBnDKxIcG79aXFk9gW93gULN0+00FhsTE1OTkVHMzk2SLFBNjY2PLJJPkVFPDlJREc8s0Q2OTiw+OpzQEMjJ0XTJjZWSAQBCfjSE4NTk/L4WBAQCV9CDU",
     uid: null,
-    Channel: "Main",
+    Channel: "Second",
   };
 
   let LocalTracks = {
