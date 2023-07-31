@@ -16,7 +16,15 @@
       <button class="btn btn-success fs-4" id="JoinBtn">
         <span> Join To Meeting </span> <i class="bi bi-patch-plus-fill"></i>
       </button>
-      <div id="IfJoined">
+      <div
+        class="spinner-border text-light m-4"
+        style="width: 100px; height: 100px; border-width: 10px; display: none"
+        id="Loading"
+        role="status"
+      >
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      <div id="IfJoined" class="w-100">
         <div id="users-streams"></div>
         <div class="controller-bar">
           <button class="btn btn-primary fs-4" id="CameraBtn">

@@ -12,14 +12,19 @@ main {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  width: 100% !important;
 }
 
 /* Start With "controller-bar" */
+#IfJoined {
+  display: none;
+}
 #users-streams {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
+  width: 100% !important;
 }
 .video-containers {
   background-color: rgb(43, 43, 43);
@@ -50,6 +55,15 @@ main {
   width: 400px !important;
   background-color: transparent !important;
   border-radius: 5px;
+}
+
+@media (max-width: 500px) {
+  .video-player {
+    width: 100%;
+  }
+  #users-streams * {
+    width: 100% !important;
+  }
 }
 .controller-bar {
   display: flex;
